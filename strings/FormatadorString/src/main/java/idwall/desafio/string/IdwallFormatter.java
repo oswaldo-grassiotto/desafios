@@ -14,7 +14,7 @@ public class IdwallFormatter extends StringFormatter {
     }
 
     /**
-     * Should format as described in the challenge
+     * Should format as described in the challenge (part 1)
      *
      * @param text
      * @return
@@ -35,7 +35,9 @@ public class IdwallFormatter extends StringFormatter {
             if(wordLength > limit)
                 throw new StringFormatException(String.format("A palavra '%s' é maior que o comprimento máximo de linha (%d caracteres)", word, limit));
 
-            if(lineLength + wordLength + 1 > limit){
+            int needSpace = (int) Math.signum(lineLength);
+
+            if(lineLength + wordLength + needSpace > limit){
                 formattedTextSb.append("\n");
                 lineLength = 0;
             }
