@@ -8,10 +8,10 @@ import static org.junit.Assert.assertEquals;
 
 public class IdwallFormatterTest {
 
-    private IdwallFormatter formatter5Characters;
-    private IdwallFormatter formatter10Characters;
-    private IdwallFormatter formatter40Characters;
-    private IdwallFormatter formatter100Characters;
+    private StringFormatter formatter5Characters;
+    private StringFormatter formatter10Characters;
+    private StringFormatter formatter40Characters;
+    private StringFormatter formatter100Characters;
 
 
     @Before

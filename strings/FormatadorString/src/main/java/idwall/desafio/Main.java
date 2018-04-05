@@ -2,6 +2,7 @@ package idwall.desafio;
 
 import idwall.desafio.Exception.StringFormatException;
 import idwall.desafio.string.IdwallFormatter;
+import idwall.desafio.string.IdwallFormatterJustified;
 import idwall.desafio.string.StringFormatter;
 
 /**
@@ -43,7 +44,13 @@ public class Main {
 
         try {
             // Run IdwallFormatter
-            final StringFormatter sf = new IdwallFormatter(limit);
+            final StringFormatter sf;
+
+            if(justify)
+                sf = new IdwallFormatterJustified(limit);
+            else
+                sf = new IdwallFormatter(limit);
+
             String outputText = sf.format(text);
 
             // Print output text
