@@ -51,6 +51,31 @@ public class RedditThread {
     }
 
     @Override
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        sb.append("Subreddit: ");
+        sb.append(subreddit);
+        sb.append("\n\n");
+
+        sb.append("Título: ");
+        sb.append(title);
+        sb.append("\n\n");
+
+        sb.append("Upvotes: ");
+        sb.append(upvotes);
+        sb.append("\n\n");
+
+        sb.append("Link Thread: ");
+        sb.append(threadLink);
+        sb.append("\n\n");
+
+        sb.append("Link Comentários: ");
+        sb.append(commentsLink);
+
+        return sb.toString();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class RedditCrawler {
@@ -37,15 +38,20 @@ public class RedditCrawler {
             if(upvotes < 5000)
                 continue;
 
+            if(threadDiv.getAttribute("class").contains("promoted"))
+                continue;
+
             String id = threadDiv.getAttribute("id");
 
             RedditThread popularThread = new RedditThread();
 
             popularThread.setSubreddit(subreddit);
             popularThread.setUpvotes(upvotes);
+            popularThread.setThreadLink(threadDiv.getAttribute("data-url"));
+
             popularThread.setTitle(threadDiv.findElement(By.className("title")).getText());
-            popularThread.setThreadLink("http://reddit.com" + threadDiv.getAttribute("data-permalink"));
             popularThread.setCommentsLink(threadDiv.findElement(By.cssSelector("a[data-event-action='comments']")).getAttribute("href"));
+
 
             threads.add(popularThread);
         }

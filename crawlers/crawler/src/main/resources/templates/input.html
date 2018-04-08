@@ -3,26 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Crawler input</title>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function() {
-
-            $("#sendTelegram").click(function () {
-                if($(this).prop('checked'))
-                    $("#phoneNumber").removeAttr("disabled");
-                else
-                    $("#phoneNumber").attr("disabled", "disabled");
-            });
-        });
-    </script>
 </head>
 <body>
 <form method="post" th:action="@{/processinput}" th:object="${requestSubreddits}">
     <span>Subreddits: </span><input type="text" th:field="*{subreddits}"/><br/>
-    <span>Enviar links por telegram: </span><input type="checkbox" th:field="*{sendTelegram}" id="sendTelegram"/><br/>
-    <span>Número do celular: </span><input type="text" th:field="*{phoneNumber}" id="phoneNumber" disabled/><br/>
     <input type="submit" value="Buscar"/>
 </form>
 </body>

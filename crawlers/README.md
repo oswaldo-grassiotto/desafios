@@ -1,3 +1,5 @@
+# O link para o bot do desafio é http://t.me/desidwall_bot
+
 # Desafio 2: Crawlers
 
 Parte do trabalho na IDwall inclui desenvolver *crawlers/scrapers* para coletar dados de websites.

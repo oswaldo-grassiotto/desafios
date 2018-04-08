@@ -27,7 +27,6 @@ public class RedditCrawlerTest {
     private WebDriver driver;
     private List<WebElement> elements;
     private String CATS = "cats";
-    private String WORLD_NEWS = "worldnews";
 
     private RedditCrawler crawler;
 
@@ -38,14 +37,14 @@ public class RedditCrawlerTest {
         WebElement div1 = mockWebElement("div1_id",
                 "div1_title",
                 "5001",
-                "/r/mocksubreddit1/link",
+                "http://reddit.com/r/mocksubreddit1/link",
                 "http://reddit.com/r/mocksubreddit1/comments"
         );
 
         WebElement div2 = mockWebElement("div2_id",
                 "div2_title",
                 "5002",
-                "/r/mocksubreddit2/link",
+                "http://reddit.com/r/mocksubreddit2/link",
                 "http://reddit.com/r/mocksubreddit2/comments"
         );
 

@@ -3,7 +3,6 @@ package idwall.desafio.crawler.controllers;
 import idwall.desafio.crawler.models.RedditThread;
 import idwall.desafio.crawler.models.RequestSubreddits;
 import idwall.desafio.crawler.services.RedditService;
-import idwall.desafio.crawler.services.TelegramService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,12 +19,10 @@ import java.util.List;
 public class InputController {
 
     private RedditService reddit;
-    private TelegramService telegram;
 
     @Autowired
-    public InputController(RedditService reddit, TelegramService telegram){
+    public InputController(RedditService reddit){
         this.reddit = reddit;
-        this.telegram = telegram;
     }
 
     @RequestMapping("/input")
@@ -46,10 +43,6 @@ public class InputController {
 
         List<String> subreddits = Arrays.asList(req.getSubreddits().split(";"));
         List<RedditThread> threads = reddit.getPopularThreads(subreddits);
-
-        if(req.getSendTelegram()){
-            telegram.send(threads, req.getPhoneNumber());
-        }
 
         mv.addObject("threads", threads);
 
