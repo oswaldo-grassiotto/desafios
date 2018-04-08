@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Threads que estão bombando</title>
+</head>
+<body>
+<table>
+    <th:block th:each="thread : ${threads}">
+        <tr>
+            <td>Subreddit</td>
+            <td th:text="${thread.subreddit}">subreddit</td>
+        </tr>
+        <tr>
+            <td>Título</td>
+            <td th:text="${thread.title}">título</td>
+        </tr>
+        <tr>
+            <td>Upvotes</td>
+            <td th:text="${thread.upvotes}">upvotes</td>
+        </tr>
+        <tr>
+            <td>Link</td>
+            <td><a th:text="${thread.threadLink}" th:href="${thread.threadLink}">link</a></td>
+        </tr>
+        <tr>
+            <td>Comentários</td>
+            <td><a th:text="${thread.commentsLink}" th:href="${thread.commentsLink}">comentários</a></td>
+        </tr>
+        <tr rowspan="2"><td colspan="2">---------</td></tr>
+    </th:block>
+</table><br/>
+<a href="/input">Buscar mais threads</a>
+</body>
+</html>
